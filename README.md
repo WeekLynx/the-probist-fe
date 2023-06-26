@@ -1,4 +1,4 @@
-# Probist-BE
+# Probist
 
 **Author**:
 
@@ -11,7 +11,7 @@ Dylan Cooper
 
 ## Overview
 
-InterviewIQ is an AI-powered platform that empowers journalists by providing them with a comprehensive framework to conduct impactful interviews. Journalists can input key information and context about the interviewee and the topic, and InterviewIQ generates a tailored list of insightful and probing questions. The platform ensures that interviewers are well-prepared, equipped with relevant information, and able to ask thought-provoking questions that uncover the truth.
+Probist is an AI-powered platform that empowers journalists by providing them with a comprehensive framework to conduct impactful interviews. Journalists can input key information and context about the interviewee and the topic, and Probist generates a tailored list of insightful and probing questions. The platform ensures that interviewers are well-prepared, equipped with relevant information, and able to ask thought-provoking questions that uncover the truth.
 
 ## Getting Started
 
@@ -27,7 +27,7 @@ MVP:
 
 4. Interviewee Profile Management: Basic functionality to manage interviewee profiles, including storing and retrieving information for future reference.
 
-By delivering these core features, InterviewIQ's MVP showcases its key value proposition of assisting journalists in preparing impactful interviews and facilitating deeper insights from interviewees.
+By delivering these core features, Probist's MVP showcases its key value proposition of assisting journalists in preparing impactful interviews and facilitating deeper insights from interviewees.
 
 ## CRUD
 
