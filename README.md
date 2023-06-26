@@ -181,11 +181,11 @@ The AI analyzes data and provides feedback.
 
 ## Domain Model
 
-![Domain Model](domainModel.png)
+![Domain Model](src/img/domainModel.png)
 
 ## Wire Frame
 
-![Wireframe](probistWireframe.png)
+![Wireframe](src/img/probistWireframe.png)
 
 ## Schema
 
