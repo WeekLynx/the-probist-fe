@@ -1,6 +1,5 @@
 # Probist-BE
 
-
 **Author**:
 
 Alex Chao
@@ -58,6 +57,7 @@ Validate that the AI interview helper's responses and behavior adapt according t
 Confirm that the selected interviewer role and associated information are stored and retained throughout the practice session, allowing consistent interview simulations.
 
 ### 2
+
 Title: **__Interview Prep__**
 User - feature - Realistic Interviewee Responses
 User Story:
@@ -75,10 +75,11 @@ Ensure that the responses reflect the interviewee's qualifications, experience, 
 Verify that the AI interview helper handles different types of questions effectively, such as behavioral questions, technical questions, or situational inquiries.
 
 ### 3
+
 Title: **__Mock questioning__**
 User - Feature - Prompt Information & Conversation History
 User Story sentence:
-As a user, I want to see past conversations so I could see the prompt information template, so that I have a better understanding of how the tone of the interview is going to be conducted. 
+As a user, I want to see past conversations so I could see the prompt information template, so that I have a better understanding of how the tone of the interview is going to be conducted.
 Feature Tasks:
 Add a "Past Conversations" section to the user interface, where users can view their previous conversations.
 Implement a database or storage mechanism to store and retrieve past conversation data.
@@ -93,6 +94,7 @@ Test the search or filter functionality by entering specific keywords or dates a
 Verify that the "Past Conversations" section remains visible and accessible to the user regardless of their actions within the application (e.g., navigating to other sections or refreshing the page).
 
 ### 4
+
 Title: **__Login__**
 Authorized user
 User Story:
@@ -109,7 +111,7 @@ Test the encryption mechanisms to ensure the confidentiality and integrity of us
 Validate that user roles and permissions are implemented correctly and reflect the intended access rights for each role.
 Confirm that authorized users can access and perform actions based on their assigned user roles and permissions.
 Conduct thorough security testing to ensure that authorization checks prevent unauthorized access to sensitive data or functionalities within the AI interview helper.
- 
+
 ### 5
 
 Title: **__Help Wanted__**
@@ -134,24 +136,24 @@ Validate the ability to switch between different interviewer roles seamlessly du
 Assess the feedback and suggestions provided by the AI interview helper, ensuring that they offer practical advice on adapting responses, communication styles, and overall interview strategies based on the specific interviewer role.
 Seek user feedback and conduct surveys to evaluate the effectiveness of practicing with different interviewer roles in helping job seekers adapt to diverse interview dynamics and increase their chances of success in real-life interviews.
 
-## Vision:
+## Vision
 
 with a comprehensive framework that streamlines the interview preparation process, generates insightful questions, and facilitates the discovery of valuable insights. By providing journalists with a tool that enhances their interviewing skills and enables them to uncover the truth
 
-## Pain Point addressed:
+## Pain Point addressed
 
 Interviewing is a critical part of Journalism. It can be time consuming and difficult to prepare impactful questions that are just as effective. By generating questions it streamlines that process and helps people overcome the obstacle of asking the right questions. 
 
-## Reasons to care:
+## Reasons to care
 
 Efficiency for time and finding the questions for a certain scenario
 Skill development in speaking and asking questions.
 Understanding the mindset of the interviewee.
 
-
-## Scope:
+## Scope
 
 ### In’s - What will our app do?
+
 Take in prompt information about the interviewer and interviewee
 Interviewee profile management with an updating feature
 See a list of old interviews(past conversation)
@@ -159,26 +161,29 @@ Provide some insights on the interviewee
 Save
 
 ### Out’s - What our app will not do?
+
 This app should be able to provide Q&A of an interview.
-It will not offer career coaching services. 
+It will not offer career coaching services.
 Our app will not provide job search functionalities or employment information.
 
 ### What will your MVP functionality be?
+
 Users can input the role of the interviewer from a form to customize their interview experience.
 The AI interviewer will generate interview questions based on the input from users.
 
 ## What are your stretch goals?
-Enhance the functionality and effectiveness of the interview AI, offering a more personalized feedback. 
-Developing an algorithm with a diverse range of interviewer styles. 
-The AI analyzes data and provides feedback. 
+
+Enhance the functionality and effectiveness of the interview AI, offering a more personalized feedback.
+Developing an algorithm with a diverse range of interviewer styles.
+The AI analyzes data and provides feedback.
 
 ## Domain Model
 
-![](domain.png)
+![Domain Model](domainModel.png)
 
 ## Wire Frame
 
-![](wireframe.png)
+![Wireframe](probistWireframe.png)
 
 ## Schema
 
