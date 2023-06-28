@@ -1,0 +1,52 @@
+.gradient-custom {
+  height: 100%;
+  width: 100%;
+  width: auto;
+  background: transparent;
+  /* background: -webkit-linear-gradient(to bottom right, violet, cyan);
+  background: linear-gradient(to bottom right, violet, cyan) */
+}
+
+.custom-container {
+  height: 950px;
+}
+
+.custom-card-body {
+  display: flex;
+  flex-direction: column;
+  max-height: 850px;
+  overflow-y: auto;
+}
+
+.people-list {
+  max-width: 400px;
+}
+
+.conversation-box {
+  max-width: 800px;
+}
+
+.card.mask-custom {
+  background: rgba(24, 24, 16, .2);
+  border-radius: 1em;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  max-height: 850px;
+  overflow-y: auto;
+}
+
+.mask.mask-custom {
+  background: rgba(24, 24, 16, .2);
+  border-radius: 1em;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}

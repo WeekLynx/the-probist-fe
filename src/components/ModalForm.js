@@ -14,7 +14,7 @@ class ModalForm extends React.Component {
           <Container className="formContainer">
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="name">
-                <Form.Label>Who are you interview</Form.Label>
+                <Form.Label>Who are you interviewing?</Form.Label>
                 <Form.Control type="text" />
               </Form.Group>
               <Form.Group controlId="topic">
@@ -23,6 +23,21 @@ class ModalForm extends React.Component {
               </Form.Group>
               <Form.Group controlId="goal">
                 <Form.Label>What is the goal or objective of your interview? Please explain the purpose and the specific outcome you hope to achieve.</Form.Label>
+                <Form.Control type="text" />
+              </Form.Group>
+              <Form.Group controlId="tone">
+                <Form.Label>Please select the tone you want the questions.</Form.Label>
+                <Form.Select aria-label="select tone">
+                  <option>Select the tone of the questions</option>
+                  <option value="neutral">Neutral</option>
+                  <option value="empathic">Empathic </option>
+                  <option value="curious">Curious</option>
+                  <option value="rhetorical">Rhetorical</option>
+                  <option value="aggressive">Aggressive</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group controlId="question">
+                <Form.Label>If you'd like please add a few specific questions for this interview separated by a semi-colon (;).</Form.Label>
                 <Form.Control type="text" />
               </Form.Group>
               <Button type="submit" onClick={closeModal}>Submit</Button>
