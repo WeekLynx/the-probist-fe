@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "../App.css";
+import "../Chatroom.css";
 import ModalForm from './ModalForm';
+import Chatroom from './Chatroom';
+
+export const interviewObj = {};
 
 function Sidebar() {
   const [showModal, setShowModal] = useState(false);
@@ -13,9 +18,15 @@ function Sidebar() {
     setShowModal(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    interviewObj.name = event.target.name.value;
+    interviewObj.topic = event.target.topic.value;
+    interviewObj.goal = event.target.goal.value;
+    interviewObj.tone = event.target.tone.value;
+    interviewObj.question = event.target.question.value;
+
+    console.log(interviewObj)
   };
 
   return (
@@ -49,8 +60,9 @@ function Sidebar() {
                 </button>
               </li>
               <li>
-                <a href="#" className="nav-link px-sm-0 px-2">
-                  <i className="bi bi-info-square"></i><span className="ms-1 d-none d-sm-inline">About Us</span> </a>
+                <Link to="/AboutUs" className="nav-link px-sm-0 px-2">
+                  <i className="bi bi-info-square"></i><span className="ms-1 d-none d-sm-inline">About Us</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -58,11 +70,12 @@ function Sidebar() {
         <div className="col d-flex flex-column h-sm-100">
           <main className="row overflow-auto">
             <div className="col pt-4">
-              <h3>Simulate an interview with anyone! Maybe.</h3>
-              <p className="lead">Give the name of someone you want to interview, the objective the questions should lead to, and the overall goal of the interview. </p>
+              <h3>Simulate an interview with anyone!</h3><h3> Click New Interview in the side menu to start!</h3>
+
               <hr />
-              <h3>Click New Interview in the side menu to start!</h3>
-              <p>Inside this p tag should be the chatbox that displays between both parties and fills up the majority of the page.</p>
+              <article>
+                <Chatroom />
+              </article>
             </div>
           </main>
           <footer className="row bg-light py-4 mt-auto">
@@ -76,29 +89,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
-
-{/* 
-// function Sidebar() {
-//   return (
-//     <div classNameName="Sidebar">
-//       <ul classNameName="SidebarList">
-//         {SidebarData.map((val, key) => {
-//           return (
-//             <li key={key}
-//               classNameName="row"
-//               id={window.location.pathname == val.link ? "active" : ""}
-//               onClick={() => { window.location.pathname = val.link }}>
-//               <div>
-//                 {val.icon}
-//                 {val.title}
-//               </div>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default Sidebar */}
