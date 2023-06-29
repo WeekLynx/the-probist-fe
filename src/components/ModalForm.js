@@ -2,6 +2,45 @@ import React from 'react';
 import { Modal, Container, Form, Button } from 'react-bootstrap';
 
 class ModalForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      topic: '',
+      goal: '',
+      tone: '',
+      questions: '',
+      email: '',
+    };
+  }
+
+  handleChange = event => {
+    const { id, value } = event.target;
+    this.setState({ [id]: value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { name, topic, goal, tone, question, email } = this.state;
+    const formData = {
+      name,
+      topic,
+      goal,
+      tone,
+      question,
+      email,
+    };
+    this.props.handleSubmit(formData);
+    this.setState({
+      name: '',
+      topic: '',
+      goal: '',
+      tone: '',
+      questions: '',
+      email: '',
+    });
+  };
+
   render() {
     const { showModal, closeModal, handleSubmit } = this.props;
 
@@ -37,8 +76,12 @@ class ModalForm extends React.Component {
                 </Form.Select>
               </Form.Group>
               <Form.Group controlId="question">
-                <Form.Label>If you'd like please add a few specific questions for this interview separated by a semi-colon (;).</Form.Label>
+                <Form.Label>If you'd like please add a few specific questions for this interview separated by a semi-colon ( ; ).</Form.Label>
                 <Form.Control type="text" />
+              </Form.Group>
+              <Form.Group controlId="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" />
               </Form.Group>
               <Button type="submit" onClick={closeModal}>Submit</Button>
             </Form>

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import "../App.css";
 import "../Chatroom.css";
 import ModalForm from './ModalForm';
-
 import Logout from './Logout';
-
 import Chatroom from './Chatroom';
-
-export const interviewObj = {};
+import Profile from './Profile';
+// export const interviewObj = {};
+// export { interviewObj };
+// import interviewObj from './interviewObj';
+import { updateInterviewObj, getInterviewObj } from './interviewObj';
 
 
 function Sidebar() {
@@ -24,14 +25,29 @@ function Sidebar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    interviewObj.name = event.target.name.value;
-    interviewObj.topic = event.target.topic.value;
-    interviewObj.goal = event.target.goal.value;
-    interviewObj.tone = event.target.tone.value;
-    interviewObj.question = event.target.question.value;
-
-    console.log(interviewObj)
+  
+    const { name, topic, goal, tone, question, email, user } = event.target;
+  
+    if (name && topic && goal && tone && question && email) {
+      const data = {
+        intervieweeName: name.value,
+        topics: topic.value,
+        goal: goal.value,
+        tone: tone.value,
+        question: question.value,
+        email: email.value,
+        user: user.value
+      };
+  
+      updateInterviewObj(data);
+      const interviewObj = getInterviewObj();
+      console.log(interviewObj);
+    } else {
+      console.log('One or more form elements are undefined.');
+    }
   };
+  
+
 
   return (
     <div className="container-fluid overflow-hidden">
@@ -42,6 +58,7 @@ function Sidebar() {
               <span className="fs-5">The<span className="d-none d-sm-inline"> Probist</span></span>
             </a>
             <ul className="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
+              <div className="profile-container"><Profile /></div>
               <Logout />
               <li className="nav-item">
                 <a href="#" className="nav-link px-sm-0 px-2">

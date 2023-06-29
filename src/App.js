@@ -12,20 +12,20 @@ class App extends React.Component {
     return (
 
       <div className="App">
-        {this.props.auth0.isAuthenticated ? 
-        <Router>
-         <div className="App">
-           <Routes>
-              <Route path="/" element={
-                 <>
-                  <Sidebar />
-                  <ModalForm />
-                 </>
-              } />
-           </Routes>
-         </div>
-        </Router>
-  : <div id='login-container'><Login /></div>}
+        {this.props.auth0.isAuthenticated ?
+          <Router>
+            <div className="App">
+              <Routes>
+                <Route path="/" element={
+                  <>
+                    <Sidebar />
+                    <ModalForm />
+                  </>
+                } />
+              </Routes>
+            </div>
+          </Router>
+          : <div id='login-container'><Login /></div>}
       </div>
 
     );

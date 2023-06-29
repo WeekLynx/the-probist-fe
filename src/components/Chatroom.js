@@ -3,6 +3,25 @@ import React, { useState, useEffect } from 'react';
 function Chatroom() {
 
 
+{/* <ul>
+  {people.map((person) => (
+    <li key={person.id} className="p-2 border-bottom" style={{ borderBottom: '1px solid rgba(255,255,255,.3)' }}>
+      <a href="#!" className="d-flex justify-content-between link-dark">
+        <div className="d-flex flex-row">
+          <img src={person.avatar} alt="avatar" className="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60" />
+          <div className="pt-1">
+            <p className="fw-bold mb-0">{person.name}</p>
+            <p className="small text-black">{person.message}</p>
+          </div>
+        </div>
+        <div className="pt-1">
+        </div>
+      </a>
+    </li>
+  ))}
+</ul> */}
+
+
   return (
     <section class="gradient-custom">
       <div class="container py-5 custom-container">
