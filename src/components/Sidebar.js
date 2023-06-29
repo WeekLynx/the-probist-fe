@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import "../App.css";
 import "../Chatroom.css";
 import ModalForm from './ModalForm';
 import Logout from './Logout';
 import Chatroom from './Chatroom';
+import Chat from './Chat';
 import Profile from './Profile';
-// export const interviewObj = {};
-// export { interviewObj };
-// import interviewObj from './interviewObj';
-import { updateInterviewObj, getInterviewObj } from './interviewObj';
-
+import { createInterviewTemplate } from './interviewObj';
+import { useAuth0 } from '@auth0/auth0-react';
+// import { updateInterviewObj, getInterviewObj } from './interviewObj';
+import { ChatContext } from './ChatContext'
 
 function Sidebar() {
   const [showModal, setShowModal] = useState(false);
-
+  const { isAuthenticated, user} = useAuth0();
+  const { state, dispatch } = useContext(ChatContext);
   const openModal = () => {
     setShowModal(true);
   };
@@ -23,31 +25,102 @@ function Sidebar() {
     setShowModal(false);
   };
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    const obj = {
+      "user": {
+          "name": "Dylan Cooper",
+          "email": "cooper.softdev@gmail.com"
+      },
+      "person": {
+          "name": "superman",
+          "personality": {
+              "knowledgeBase": "Specific areas of knowledge possessed by the interviewee",
+              "influencesAndInspirations": "Influences and inspirations for the interviewee",
+              "uniqueInsightsOrPerspectives": "Unique insights or perspectives offered by the interviewee",
+              "currentRelevance": "Current relevance or standing of the interviewee",
+              "interactionsWithPeersAndCritics": "Interactions of the interviewee with peers and critics",
+              "personalBackground": "Personal background of the interviewee",
+              "publicPersona": "Public persona or image of the interviewee",
+              "articulationStyle": "Articulation style of the interviewee",
+              "senseOfHumor": "Sense of humor displayed by the interviewee",
+              "intellectualContributions": "Intellectual contributions made by the interviewee",
+              "currentEventsEngagement": "Engagement of the interviewee with current events",
+              "fallacies": [
+                  "insert list of fallacies the interviewee uses"
+              ],
+              "rhetoricalStrategies": "Rhetorical strategies employed by the interviewee",
+              "argumentativeStyle": "Overall argumentative style of the interviewee",
+              "debateTactics": "Specific debate tactics employed by the interviewee",
+              "responsePatterns": "Typical response patterns to different types of questions or challenges",
+              "emotionalTriggers": "Topics or arguments that trigger strong emotional responses from the interviewee",
+              "responseToCounterarguments": "How the interviewee handles counterarguments"
+          }
+      },
+      "interviews": [
+          {
+              "intervieweeName": "superman",
+              "topics": "kryptonian",
+              "goal": "why are they so fast?",
+              "tone": "empathic",
+              "questionsAndAnswers": [
+                  {
+                      "question": "",
+                      "answer": ""
+                  }
+              ]
+          }
+      ]
+  }
+  axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/parse-interview-template`, 
+    obj
+  ).then((res)=>{
+    console.log('RESPONSE:', res);
+  }).catch((err)=>console.log(err))
+  
+  }, [])
+  
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
   
-    const { name, topic, goal, tone, question, email, user } = event.target;
+    const { name, topic, goal, tone } = event.target;
   
-    if (name && topic && goal && tone && question && email) {
-      const data = {
+    if (name && topic && goal && tone) {
+      
+      const interviewObj = {
         intervieweeName: name.value,
         topics: topic.value,
         goal: goal.value,
         tone: tone.value,
-        question: question.value,
-        email: email.value,
-        user: user.value
       };
-  
-      updateInterviewObj(data);
-      const interviewObj = getInterviewObj();
-      console.log(interviewObj);
+      
+      if (isAuthenticated) {
+        interviewObj.user={name:user.name, email:user.email};
+      }
+      
+      try {
+        
+        const interviewTemplate = createInterviewTemplate(interviewObj);
+        // console.log("OBJ:",interviewTemplate);
+        // const interviewTemplateString = JSON.stringify(interviewTemplate);
+        // console.log(interviewTemplateString);
+        // await axios.post(`${process.env.REACT_APP_BACKEND_URL}/parse-interview-template`, interviewTemplate);
+        await axios.post(
+          `${process.env.REACT_APP_BACKEND_URL}/parse-interview-template`, 
+          interviewTemplate
+        ).then((res)=>{
+          dispatch({type: 'SET_PERSONALITY', payload: res})
+        }).catch((err)=>console.log(err))
+        
+      } catch (error) {
+        console.error('Error sending template to backend:', error);
+      }
     } else {
-      console.log('One or more form elements are undefined.');
+      console.log('Complete the form before submitting.');
     }
   };
   
-
 
   return (
     <div className="container-fluid overflow-hidden">
@@ -96,7 +169,7 @@ function Sidebar() {
 
               <hr />
               <article>
-                <Chatroom />
+                <Chat />
               </article>
             </div>
           </main>
