@@ -6,49 +6,56 @@ import { onSnapshot } from "firebase/firestore";
 
 const RenderMsg = ({messages}) =>{
   return (
+    <>
     <div data-mdb-perfect-scrollbar="true" style={{ position: 'relative', height: '675px', overflowY: 'auto' }}>
-              <ul class="list-unstyled text-black ">
-                {messages?.map((message)=>(
-                  message.user === 'NIxkW04WGF2MX084MCFTGM' ? (
-                    <li class="d-flex justify-content-between mb-4">
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
-                        class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60"></img>
-                      <div class="card mask-custom">
-                        <div class="card-header d-flex justify-content-between p-2"
-                          style={{ borderBottom: '1px solid rgba(255,255,255,.3);' }}>
-                          <p class="fw-bold mb-0 pl-2">Brad Pitt</p>
-                          <p class="text-light small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
-                        </div>
-                        <div class="card-body">
-                          <p class="mb-0">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  ) :(
-                  <li class="d-flex justify-content-between mb-4">
-                    <div class="card mask-custom w-100">
-                      <div class="card-header d-flex justify-content-between p-2"
-                        style={{ borderBottom: '1px solid rgba(255,255,255,.3);' }}>
-                        <p class="fw-bold mb-0">Lara Croft</p>
-                        <p class="text-light small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
-                      </div>
-                      <div class="card-body">
-                        <p class="mb-0">
-                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                          laudantium.
-                        </p>
-                      </div>
-                    </div>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" alt="avatar"
-                      class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60"></img>
-                  </li>
-                  )
-                ))}
-              </ul>
-            </div>
+        <ul class="list-unstyled text-black ">
+          {messages?.map((message)=>(
+            message.user === 'NIxkW04WGF2MX084MCFTGM' ? (
+              <li class="d-flex justify-content-between mb-4">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+                  class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60"></img>
+                <div class="card mask-custom">
+                  <div class="card-header d-flex justify-content-between p-2"
+                    style={{ borderBottom: '1px solid rgba(255,255,255,.3);' }}>
+                    <p class="fw-bold mb-0 pl-2">Brad Pitt</p>
+                    <p class="text-light small mb-0"><i class="far fa-clock"></i> 12 mins ago</p>
+                  </div>
+                  <div class="card-body">
+                    <p class="mb-0">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ) :(
+            <li class="d-flex justify-content-between mb-4">
+              <div class="card mask-custom w-100">
+                <div class="card-header d-flex justify-content-between p-2"
+                  style={{ borderBottom: '1px solid rgba(255,255,255,.3);' }}>
+                  <p class="fw-bold mb-0">Lara Croft</p>
+                  <p class="text-light small mb-0"><i class="far fa-clock"></i> 13 mins ago</p>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium.
+                  </p>
+                </div>
+              </div>
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp" alt="avatar"
+                class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60"></img>
+            </li>
+            )
+          ))}
+        </ul>
+    </div>
+    
+    <div class="form-outline form-white mt-1">
+      <textarea class="form-control" id="textAreaExample3" rows="4"></textarea>
+    </div>
+    <button type="button" class="btn btn-light btn-lg btn-rounded float-end mt-3">Send</button>
+    </>
   )
 }
 
@@ -71,7 +78,7 @@ function Chat({chatHistory}) {
   }, [chatsRef]) //eslint-disable-line
 
 
-  useEffect(() => { 
+  useEffect(() => {
     if (!chatsRef) return;
     const unsub = onSnapshot(chatsRef, (doc) => {
       if (doc.exists() && Object.keys(doc.data().messages || {}).length > 0) {
@@ -121,10 +128,6 @@ function Chat({chatHistory}) {
 
           <div class="col-md-6 col-lg-7 col-xl-7 conversation-box">
             <RenderMsg messages={messages} />
-            <div class="form-outline form-white mt-1">
-              <textarea class="form-control" id="textAreaExample3" rows="4"></textarea>
-            </div>
-            <button type="button" class="btn btn-light btn-lg btn-rounded float-end mt-3">Send</button>
           </div>
         </div>
       </div>

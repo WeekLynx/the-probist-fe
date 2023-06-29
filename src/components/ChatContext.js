@@ -1,10 +1,14 @@
 import React, { createContext, useReducer } from 'react';
+import { v4 as uuid } from 'uuid';
+import { db } from './firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 const INITIAL_STATE = {
     chatList: [],
     messages: [],
     chatsRef: null,
     personalities: null,
+    subCollection: uuid()
 }
 
 const chatReducer = (state, action) => {
@@ -16,9 +20,15 @@ const chatReducer = (state, action) => {
         return { ...state, messages: action.payload };
       
     case 'SET_CHATREF': 
-        return {...state, chatsRef: action.payload}  
-    case 'SET_PERSONALITY': 
-        return {...state, personalities: action.payload}  
+        return {...state, chatsRef: action.payload};
+
+    case 'SET_PERSONALITY':
+        console.log('SET_PERSONALITY');
+        const { email } = action.payload
+        const chatsRef = doc(db, "personalities", email, state.subCollection, "messages");
+        // const chatsRef = doc(db, "personalities", email, state.subCollection, "messages");
+        setDoc(chatsRef, {});
+        return {...state, personalities: action.payload, chatsRef};
       
     default:
       return state;

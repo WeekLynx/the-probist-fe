@@ -13,10 +13,13 @@ import { useAuth0 } from '@auth0/auth0-react';
 // import { updateInterviewObj, getInterviewObj } from './interviewObj';
 import { ChatContext } from './ChatContext'
 
+
 function Sidebar() {
   const [showModal, setShowModal] = useState(false);
   const { isAuthenticated, user} = useAuth0();
   const { state, dispatch } = useContext(ChatContext);
+  const { messages } = state
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -76,6 +79,7 @@ function Sidebar() {
     obj
   ).then((res)=>{
     console.log('RESPONSE:', res);
+    dispatch({type: 'SET_PERSONALITY', payload: res})
   }).catch((err)=>console.log(err))
   
   }, [])
@@ -169,7 +173,13 @@ function Sidebar() {
 
               <hr />
               <article>
-                <Chat />
+                { messages.length > 0 
+                ? <Chatroom />
+                : <button className="nav-link px-sm-0 px-2" onClick={openModal}>
+                    <i className="bi bi-journal-plus"></i>
+                    <span className="ms-1 d-none d-sm-inline">New Interview</span>
+                  </button>
+              }
               </article>
             </div>
           </main>
