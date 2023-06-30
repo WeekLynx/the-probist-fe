@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="About.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <title>About us</title>
+</head>
+<header>
+
+  <section>
+    <img src="img/bg.jpg" id="bg">
+    <img src="img/moon.png" id="moon">
+    <img src="img/mountain.png" id="mountain">
+    <img src="img/interview.png" id="interview">
+    <!-- <h2 id="text">About Us</h2> -->
+ </section>
+</header>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="img/About/Gerald.png" alt="Builder 1">
+          <div class="card-body">
+            <h5 class="card-title">Gerald</h5>
+            <p class="card-text">Some information about builder 1.</p>
+            <a href="https://github.com/NephilimEyez" target="_blank" class="card-link">GitHub</a>
+            <a href="https://linkedin.com/in/builder1" target="_blank" class="card-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="img/About/Cooper.jpg" alt="Builder 1">
+          <div class="card-body">
+            <h5 class="card-title">Dylan Cooper</h5>
+            <p class="card-text">Some information about builder 1.</p>
+            <a href="https://github.com/Cooper-Softdev" target="_blank" class="card-link">GitHub</a>
+            <a href="https://linkedin.com/in/builder1" target="_blank" class="card-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="img/About/Kyle.jpg" alt="Builder 1">
+          <div class="card-body">
+            <h5 class="card-title">Kyle Knight</h5>
+            <p class="card-text">Some information about builder 1.</p>
+            <a href="https://github.com/mrkyleknight" target="_blank" class="card-link">GitHub</a>
+            <a href="https://linkedin.com/in/builder1" target="_blank" class="card-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="img/About/Alex.jpg" alt="Builder 1">
+          <div class="card-body">
+            <h5 class="card-title">Alex Chao</h5>
+            <p class="card-text">Some information about builder 1.</p>
+            <a href="https://github.com/AlexSaeChao" target="_blank" class="card-link">GitHub</a>
+            <a href="https://linkedin.com/in/builder1" target="_blank" class="card-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+  
+   
+    <div class="container my-5 py-5 bg-light">
+      <h3>
+        We are a team of four technology enthusiasts with diverse skills and experiences, united by our passion for creating impactful digital solutions. Our team includes a diligent front-end maestro known for clean, intuitive interfaces, and a full-stack genius who masterfully oversees the intricate interplay between front-end and back-end technologies.
+  
+        On the data side, our back-end guru breathes life into our platform with expertise in machine learning and natural language processing. The visual appeal and usability of our product are the result of our UX/UI expert who believes in creating meaningful experiences, not just products.
+  
+        Together, we've poured our shared passion into creating InterviewIQ, an AI-powered platform designed to revolutionize journalism. InterviewIQ is the product of hard work, innovation, and a relentless pursuit of excellence.
+      </h3>
+    </div>
+    
+  </body>
+  </html>
+  
+ <script type="text/javascript">
+  let bg = document.getElementById("bg");
+  let moon = document.getElementById("moon");
+  let mountain = document.getElementById("mountain");
+  let interview = document.getElementById("interview");
+  let text = document.getElementById("text");
+
+  window.addEventListener('scroll', function(){
+    var value = window.scrollY;
+
+    bg.style.top = value * 0.5 + 'px';
+    moon.style.left = -value * .65 + 'px';
+    mountain.style.top = -value * 0.15 + 'px';
+    interview.style.top = value * 0.15 + 'px';
+    // text.style.top = value * 0.5 + 'px';
+
+  })
+  
+
+ </script>
+ 
+  
+</body>
+</html>
