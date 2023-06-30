@@ -9,7 +9,7 @@ import Profile from './Profile';
 // export const interviewObj = {};
 // export { interviewObj };
 // import interviewObj from './interviewObj';
-import { updateInterviewObj, getInterviewObj, createInterviewTemplate } from './interviewObj';
+// import { updateInterviewObj, getInterviewObj, createInterviewTemplate } from './interviewObj';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 

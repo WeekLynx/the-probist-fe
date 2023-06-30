@@ -5,19 +5,19 @@ const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [formData, setFormData] = useState({});
 
-  const handleInputChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
+  // const handleInputChange = (event) => {
+  //   setFormData({ ...formData, [event.target.name]: event.target.value });
+  // };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
     
-    // Add the email and name to the formData object
-    const dataToSave = {
-      email: user.email,
-      name: user.name,
-      ...formData,
-    };
+  //   // Add the email and name to the formData object
+  //   const dataToSave = {
+  //     email: user.email,
+  //     name: user.name,
+  //     ...formData,
+  //   };
 
     // Make an API call to save the data to the database
     // Replace "/api/save-data" with your backend endpoint
