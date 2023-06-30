@@ -107,11 +107,9 @@ function Sidebar() {
       try {
         let axiosResponse = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/getInterview`, interviewObj);
 
-        const interviewQuestions = axiosResponse.data.split('. ')
-        interviewQuestions.shift();
-        let output = interviewQuestions.map(question => question.slice(0, question.indexOf('?')+1))
-         
-        setQuestions(output)
+
+
+        setQuestions(axiosResponse.data)
 
         // const interviewTemplate = createInterviewTemplate(interviewObj);
         // console.log("OBJ:",interviewTemplate);
@@ -147,13 +145,14 @@ function Sidebar() {
               <div className="profile-container"><Profile /></div>
               <Logout />
               <li className="nav-item">
-                <a href="#" className="nav-link px-sm-0 px-2">
+                <Link to="/" className="nav-link px-sm-0 px-2">
                   <i className="fs-5 bi bi-house"></i><span className="ms-1 d-none d-sm-inline">Home</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#submenu1" data-bs-toggle="collapse" className="nav-link px-sm-0 px-2">
-                  <i className="fs-5 bi bi-speedometer2"></i><span className="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                <Link to="/dashboard" data-bs-toggle="collapse" className="nav-link px-sm-0 px-2">
+                  <i className="fs-5 bi bi-speedometer2"></i><span className="ms-1 d-none d-sm-inline">Dashboard</span>
+                </Link>
               </li>
               <li>
                 <button className="nav-link px-sm-0 px-2" onClick={openModal}>
@@ -161,12 +160,12 @@ function Sidebar() {
                   <span className="ms-1 d-none d-sm-inline">New Interview</span>
                 </button>
               </li>
-              <li>
+              {/* <li>
                 <button className="nav-link px-sm-0 px-2">
                   <i className="bi bi-journal-minus"></i>
                   <span className="ms-1 d-none d-sm-inline">Delete Interview</span>
                 </button>
-              </li>
+              </li> */}
               <li>
                 <Link to="/AboutUs" className="nav-link px-sm-0 px-2">
                   <i className="bi bi-info-square"></i><span className="ms-1 d-none d-sm-inline">About Us</span>
@@ -182,7 +181,7 @@ function Sidebar() {
 
               <hr />
               <article>
-                <Chatroom questions={questions}/>
+                <Chatroom questions={questions} />
               </article>
             </div>
           </main>
