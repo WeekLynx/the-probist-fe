@@ -75,14 +75,14 @@ class ModalForm extends React.Component {
                   <option value="aggressive">Aggressive</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group controlId="question">
+              {/* <Form.Group controlId="question">
                 <Form.Label>If you'd like please add a few specific questions for this interview separated by a semi-colon ( ; ).</Form.Label>
                 <Form.Control type="text" />
               </Form.Group>
               <Form.Group controlId="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" />
-              </Form.Group>
+              </Form.Group> */}
               <Button type="submit" onClick={closeModal}>Submit</Button>
             </Form>
           </Container>

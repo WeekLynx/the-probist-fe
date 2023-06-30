@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-function Chatroom() {
+function Chatroom({questions}) {
 
-
+console.log('questionsInChatroom', questions);
 {/* <ul>
   {people.map((person) => (
     <li key={person.id} className="p-2 border-bottom" style={{ borderBottom: '1px solid rgba(255,255,255,.3)' }}>
