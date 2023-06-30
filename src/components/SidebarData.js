@@ -48,11 +48,6 @@ const YourComponent = () => {
   updateInterview('interviewId', updatedInterviewObj);
   deleteInterview('interviewId');
 
-  return (
-    <div>
-      {/* JSX stuffs */}
-    </div>
-  );
 };
 
 export default YourComponent;

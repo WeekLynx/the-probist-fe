@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Container, Form, Button } from 'react-bootstrap';
-
+import { withAuth0 } from '@auth0/auth0-react';
 class ModalForm extends React.Component {
   constructor(props) {
     super(props);
@@ -9,8 +9,6 @@ class ModalForm extends React.Component {
       topic: '',
       goal: '',
       tone: '',
-      questions: '',
-      email: '',
     };
   }
 
@@ -21,14 +19,12 @@ class ModalForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, topic, goal, tone, question, email } = this.state;
+    const { name, topic, goal, tone, } = this.state;
     const formData = {
       name,
       topic,
       goal,
       tone,
-      question,
-      email,
     };
     this.props.handleSubmit(formData);
     this.setState({
@@ -36,8 +32,6 @@ class ModalForm extends React.Component {
       topic: '',
       goal: '',
       tone: '',
-      questions: '',
-      email: '',
     });
   };
 
@@ -75,14 +69,6 @@ class ModalForm extends React.Component {
                   <option value="aggressive">Aggressive</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group controlId="question">
-                <Form.Label>If you'd like please add a few specific questions for this interview separated by a semi-colon ( ; ).</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
-              <Form.Group controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" />
-              </Form.Group>
               <Button type="submit" onClick={closeModal}>Submit</Button>
             </Form>
           </Container>
@@ -92,4 +78,4 @@ class ModalForm extends React.Component {
   }
 }
 
-export default ModalForm;
+export default withAuth0(ModalForm);
