@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Link } from 'react-router-dom';
 import "../App.css";
@@ -79,19 +80,26 @@ class Dashboard extends React.Component {
 
                 <hr />
                 <article>
-                  {this.state.interviews.length ?
-                    this.state.interviews.map(interview => (
-                      <>
-                        <p>{interview.intervieweeName}</p>
-                        <ul>
-                          {interview.questions.map(question => (<li>{question}</li>))}
-                        </ul>
-                      </>
-                    ))
-                    :
-                    <h3>No Interviews Found</h3>
-                  }
-                </article>
+  {this.state.interviews.length ?
+    this.state.interviews.map(interview => (
+      <div className="card" style={{ marginBottom: '1em' }} key={interview._id}>
+        <div className="card-header">
+          {interview.intervieweeName}
+        </div>
+        <div className="card-body">
+          <ul className="custom-bullet-list">
+            {interview.questions.map(question => (
+              <li key={question._id}>{question}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))
+    :
+    <h3>No Interviews Found</h3>
+  }
+</article>
+
               </div>
             </main>
             <footer className="row bg-light py-4 mt-auto">

@@ -1,0 +1,92 @@
+.About {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+
+}
+  
+
+
+
+
+.header-container {
+  margin-top: -50px; /* Adjust the value as needed */
+}
+/* Mountain Photo */
+
+
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+ 
+}
+
+section:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #0a2a43, transparent);
+  z-index: 10000;
+}
+
+section:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a2a43;
+  z-index: 10000;
+  mix-blend-mode: color;
+}
+
+section img { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#text
+{
+  position: relative;
+  transform: translateY(-210px);
+  color: #fff;
+  font-size: 10em;
+  z-index: 1;
+}
+
+#interview
+{
+  transform: translateY(-15px);
+  z-index: 3;
+}
+
+
+#mountain
+{
+  z-index: 2;
+}
+
+
+
+
+/* Cards for info */
+
+/* .card {
+  width: 400px; 
+  height: auto;
+} */
