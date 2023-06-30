@@ -41,6 +41,17 @@ class ModalForm extends React.Component {
     });
   };
 
+  handleDelete = () => {
+    this.setState({
+      name: '',
+      topic: '',
+      goal: '',
+      tone: '',
+      questions: '',
+      email: '',
+    });
+  };
+
   render() {
     const { showModal, closeModal, handleSubmit } = this.props;
 
