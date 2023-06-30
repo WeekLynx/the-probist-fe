@@ -186,7 +186,7 @@ function Sidebar() {
             </div>
           </main>
           <footer className="row bg-light py-4 mt-auto">
-            <div className="col">Created with OpenAI API and our big fat brains</div>
+            <div className="col">The Probist © 2023. Utilizing OpenAI API.</div>
           </footer>
         </div>
       </div>
