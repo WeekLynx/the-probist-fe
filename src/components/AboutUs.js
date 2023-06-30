@@ -15,9 +15,9 @@ function AboutUs() {
           </a>
           <ul className="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
             <li className="nav-item">
-              <a href="#" className="nav-link px-sm-0 px-2">
+              <Link to="/" className="nav-link px-sm-0 px-2">
                 <i className="fs-5 bi bi-house"></i><span className="ms-1 d-none d-sm-inline">Home</span>
-              </a>
+              </Link>
             </li>
             <li>
               <Link to="/AboutUs" className="nav-link px-sm-0 px-2">
@@ -40,8 +40,8 @@ function AboutUs() {
             <div className="card-body">
               <h5 className="card-title">Gerald</h5>
               <p className="card-text">Some information about builder 1.</p>
-              <a href="https://github.com/NephilimEyez" target="_blank" className="card-link">GitHub</a>
-              <a href="https://linkedin.com/in/builder1" target="_blank" className="card-link">LinkedIn</a>
+              <a href="https://github.com/NephilimEyez" className="card-link">GitHub</a>
+              <a href="https://linkedin.com/in/builder1" className="card-link">LinkedIn</a>
             </div>
           </div>
         </div>
@@ -52,8 +52,8 @@ function AboutUs() {
             <div className="card-body">
               <h5 className="card-title">Dylan Cooper</h5>
               <p className="card-text">Some information about builder 1.</p>
-              <a href="https://github.com/Cooper-Softdev" target="_blank" className="card-link">GitHub</a>
-              <a href="https://linkedin.com/in/builder1" target="_blank" className="card-link">LinkedIn</a>
+              <a href="https://github.com/Cooper-Softdev" className="card-link">GitHub</a>
+              <a href="https://linkedin.com/in/builder1" className="card-link">LinkedIn</a>
             </div>
           </div>
         </div>
@@ -64,8 +64,8 @@ function AboutUs() {
             <div className="card-body">
               <h5 className="card-title">Kyle Knight</h5>
               <p className="card-text">Some information about builder 1.</p>
-              <a href="https://github.com/mrkyleknight" target="_blank" className="card-link">GitHub</a>
-              <a href="https://linkedin.com/in/builder1" target="_blank" className="card-link">LinkedIn</a>
+              <a href="https://github.com/mrkyleknight" className="card-link">GitHub</a>
+              <a href="https://linkedin.com/in/builder1" className="card-link">LinkedIn</a>
             </div>
           </div>
         </div>
@@ -76,8 +76,8 @@ function AboutUs() {
             <div className="card-body">
               <h5 className="card-title">Alex Chao</h5>
               <p className="card-text">Some information about builder 1.</p>
-              <a href="https://github.com/AlexSaeChao" target="_blank" className="card-link">GitHub</a>
-              <a href="https://linkedin.com/in/builder1" target="_blank" className="card-link">LinkedIn</a>
+              <a href="https://github.com/AlexSaeChao" className="card-link">GitHub</a>
+              <a href="https://linkedin.com/in/builder1" className="card-link">LinkedIn</a>
             </div>
           </div>
         </div>
