@@ -51,6 +51,30 @@
   box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
 }
 
+
+.custom-bullet-list {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;  /* Reset padding */
+}
+
+.custom-bullet-list li {
+  padding-left: 1em; /* Add padding to align the text properly */
+}
+
+.custom-bullet-list li::before {
+  content: ''; /* We don't want any content, just the background image */
+  background: url('../public/img/design-thinking-interviews-fotor-bg-remover-2023063031122.png') no-repeat; /* Your image URL */
+  background-size: contain; /* You can adjust this as per your needs */
+  display: inline-block; 
+  height: 1em; /* Adjust according to the size of your image */
+  width: 2em; /* Adjust according to the size of your image */
+  margin-right: 1em; /* Space between the bullet and the text */
+  margin-left: -.5em; /* To move the bullet to the left of the text */
+  padding: 2em;
+  position: relative; /* Add position relative */
+  top: 3em; /* Adjust the vertical positioning */
+}
+
 .delete {
   cursor: pointer;
 }
@@ -59,3 +83,4 @@ h3 {
   display: inline;
   padding: 0px 5px 0px 0px;
 }
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Link } from 'react-router-dom';
 import "../App.css";
@@ -93,24 +94,32 @@ class Dashboard extends React.Component {
 
                 <hr />
                 <article>
-                  {this.state.interviews.length ?
-                    this.state.interviews.map(interview => (
-                      <>
-                      {/* {console.log(auth0.user.email)} */}
-                      {/* {interview.email === Profile.user.email ? `${interview.intervieweeName} <img onClick=${() => this.deleteInterview(interview._id)} src='./public/img/trash-can.png' alt='trash can to delete interview' />` : interview.intervieweeName} */}
-                        <div>
-                          <h3>{interview.intervieweeName}</h3> 
-                          <img className='delete' onClick={() => this.deleteInterview(interview._id)} src={trashcan} alt='trash can to delete interview' />
-                        </div>
-                        <ul>
-                          {interview.questions.map(question => (<li>{question}</li>))}
-                        </ul>
-                      </>
-                    ))
-                    :
-                    <h3>No Interviews Found</h3>
-                  }
-                </article>
+
+  {this.state.interviews.length ?
+    this.state.interviews.map(interview => (
+
+      <div className="card" style={{ marginBottom: '1em' }} key={interview._id}>
+        {/* {console.log(auth0.user.email)} */}
+        {/* {interview.email === Profile.user.email ? `${interview.intervieweeName} <img onClick=${() => this.deleteInterview(interview._id)} src='./public/img/trash-can.png' alt='trash can to delete interview' />` : interview.intervieweeName} */}
+        <div className="card-header">
+          <h3>{interview.intervieweeName}</h3> 
+          <img className='delete' onClick={() => this.deleteInterview(interview._id)} src={trashcan} alt='trash can to delete interview' />
+        </div>
+        <div className="card-body">
+          <ul className="custom-bullet-list">
+            {interview.questions.map(question => (
+              <li key={question._id}>{question}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))
+    :
+    <h3>No Interviews Found</h3>
+  }
+</article>
+
+
               </div>
             </main>
             <footer className="row bg-light py-4 mt-auto">
