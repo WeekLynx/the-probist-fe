@@ -9,6 +9,7 @@ import "../Chatroom.css";
 import Logout from './Logout';
 
 import Profile from './Profile';
+import trashcan from '../trash-can.png';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -29,6 +30,19 @@ class Dashboard extends React.Component {
       })
     } catch (error) {
       console.log(error.message)
+    }
+  }
+  deleteInterview = async (id) => {
+    let url = `${process.env.REACT_APP_BACKEND_URL}/interviews/${id}`;
+
+    try {
+      await axios.delete(url);
+      let updatedInterview = this.state.interviews.filter(interview => interview._id !== id);
+      this.setState({
+        interviews: updatedInterview
+      })
+    } catch (error) {
+      console.log(error.message);
     }
   }
   render() {
@@ -80,11 +94,16 @@ class Dashboard extends React.Component {
 
                 <hr />
                 <article>
+
   {this.state.interviews.length ?
     this.state.interviews.map(interview => (
+
       <div className="card" style={{ marginBottom: '1em' }} key={interview._id}>
+        {/* {console.log(auth0.user.email)} */}
+        {/* {interview.email === Profile.user.email ? `${interview.intervieweeName} <img onClick=${() => this.deleteInterview(interview._id)} src='./public/img/trash-can.png' alt='trash can to delete interview' />` : interview.intervieweeName} */}
         <div className="card-header">
-          {interview.intervieweeName}
+          <h3>{interview.intervieweeName}</h3> 
+          <img className='delete' onClick={() => this.deleteInterview(interview._id)} src={trashcan} alt='trash can to delete interview' />
         </div>
         <div className="card-body">
           <ul className="custom-bullet-list">
@@ -99,6 +118,7 @@ class Dashboard extends React.Component {
     <h3>No Interviews Found</h3>
   }
 </article>
+
 
               </div>
             </main>

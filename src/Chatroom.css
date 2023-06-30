@@ -51,6 +51,7 @@
   box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
 }
 
+
 .custom-bullet-list {
   list-style: none; /* Remove default bullets */
   padding-left: 0;  /* Reset padding */
@@ -73,3 +74,13 @@
   position: relative; /* Add position relative */
   top: 3em; /* Adjust the vertical positioning */
 }
+
+.delete {
+  cursor: pointer;
+}
+
+h3 {
+  display: inline;
+  padding: 0px 5px 0px 0px;
+}
+
